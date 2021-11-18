@@ -9,9 +9,10 @@ const FailureErrorMap = {
 
 const failed: GeoLocComponent = ({state}) => {
   if (!state.error) return null;
+  const friendlyError = FailureErrorMap[state.error.code];
   return (
     <div>
-      Something went wrong! {FailureErrorMap[state.error.code]}
+      Something went wrong! {friendlyError}
     </div>
   )
 }
