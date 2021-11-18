@@ -1,24 +1,23 @@
-import React from 'react';
-import logo from './logo.svg';
+import {useState} from 'react';
 import './App.css';
+import Dictionary from './components/Dictionary';
+import Definition from './components/Definition';
+import Highlighter from './components/SyntaxHighlighter';
+import GeoLocator from './components/GeoLocator';
 
 function App() {
+  const [text, settext] = useState("I love to play football with my blue pants and monkey in the bin")
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <div>
+        <Definition>Oat Milk</Definition>
+      </div>
+        <textarea rows={5} cols={50} value={text} onChange={e => settext(e.target.value)} />
+      <div>
+        <Highlighter>{text}</Highlighter>
+      </div>
+      <Dictionary />
+      <GeoLocator />
     </div>
   );
 }

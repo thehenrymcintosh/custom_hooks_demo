@@ -36,3 +36,36 @@
     transform: rotate(360deg);
   }
 }
+
+
+.noun {
+  color: blue;
+}
+
+.preposition {
+  color: red;
+}
+
+.verb {
+  color: green;
+}
+
+.determiner {
+  color: orange;
+}
+
+.conjunction {
+  color: cyan;
+}
+
+.adjective {
+  color: purple;
+}
+
+.pronoun {
+  color: black;
+}
+
+.adverb {
+  color: maroon;
+}
