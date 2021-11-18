@@ -7,7 +7,7 @@ const FailureErrorMap = {
   [GeolocationPositionError.TIMEOUT]: "Fetching your location timed out. Please try again later.",
 }
 
-const failed: GeoLocComponent = ({state}) => {
+const failed: GeoLocComponent<"Failed"> = ({state}) => {
   if (!state.error) return null;
   const friendlyError = FailureErrorMap[state.error.code];
   return (

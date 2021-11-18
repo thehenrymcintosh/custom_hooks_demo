@@ -4,9 +4,9 @@ import Completed from './completed';
 import Pending from "./pending";
 import Unsupported from "./unsupported";
 import Idle from "./idle";
-import { GeoLocComponent } from './types';
+import { GeoLocComponent, GeoLocComponentMap } from './types';
 
-const ComponentMap : Record<State["status"], GeoLocComponent> = {
+const ComponentMap : GeoLocComponentMap = {
   Completed,
   Failed,
   Pending,
@@ -16,5 +16,6 @@ const ComponentMap : Record<State["status"], GeoLocComponent> = {
 
 export default function GeoLocator() {
   const [state, locate] = useGeoLocate();
-  return ComponentMap[state.status]({state, locate});
+  const component = ComponentMap[state.status] as GeoLocComponent<State["status"]>;
+  return component({state, locate});
 }

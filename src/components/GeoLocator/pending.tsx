@@ -1,7 +1,7 @@
 import React from 'react'
 import { GeoLocComponent } from "./types";
 
-const pending: GeoLocComponent = ({state}) => {
+const pending: GeoLocComponent<"Pending"> = ({state}) => {
   if (state.status !== "Pending") return null;
   return (
     <div>

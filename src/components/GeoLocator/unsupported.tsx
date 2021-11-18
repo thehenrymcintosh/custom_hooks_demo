@@ -1,7 +1,7 @@
 import React from 'react'
 import { GeoLocComponent } from "./types";
 
-const unsupported: GeoLocComponent = ({state}) => {
+const unsupported: GeoLocComponent<"Unsupported"> = ({state}) => {
   if (state.status !== "Unsupported") return null;
   return (
     <div>
