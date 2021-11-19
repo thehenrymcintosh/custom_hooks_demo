@@ -11,7 +11,9 @@ type Props = {
 
 const useDictionary = ({word, delay = 200} : Props) : PossibleResponse => {
   const [response, setResponse] = useState<PossibleResponse>(null);
+
   const defineDebounced = useCallback( (word) => debounce(define, delay)(word), [delay]);
+
   useEffect(() => {
     if (!word) return setResponse(null);
     let cancelled = false;
@@ -19,7 +21,9 @@ const useDictionary = ({word, delay = 200} : Props) : PossibleResponse => {
     defineDebounced(word)
       .then( r => !cancelled && setResponse(r) );
 
-    return () => { cancelled = true };
+    return () => { 
+      cancelled = true 
+    };
   }, [defineDebounced, word])
 
   return response;

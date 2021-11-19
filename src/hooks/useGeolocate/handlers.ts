@@ -5,9 +5,7 @@ export const Start : Handlers["Start"] = (state, _, emit) => {
     return {status: "Unsupported"}; 
   } 
   if (state.status === "Pending") return state;
-  const onSuccess = (location: GeolocationPosition) => emit.Complete(location);
-  const onError = (error: GeolocationPositionError) => emit.Fail(error);
-  window.navigator.geolocation.getCurrentPosition(onSuccess, onError);
+  window.navigator.geolocation.getCurrentPosition(emit.Complete, emit.Fail);
   return {status: "Pending"};
 }
 

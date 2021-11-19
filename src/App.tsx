@@ -17,7 +17,7 @@ function App() {
         <Highlighter>{text}</Highlighter>
       </div>
       <Dictionary />
-      <GeoLocator />
+      {/* <GeoLocator /> */}
     </div>
   );
 }
